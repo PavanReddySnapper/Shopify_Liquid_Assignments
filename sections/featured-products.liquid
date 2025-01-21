@@ -1,4 +1,4 @@
-{% assign selected_collection = collections['featured-products'] %}
+    {% assign selected_collection = collections['featured-products'] %}
     {% if selected_collection.products_count>10 %}
         <h3 style="text-align:center">We have an amazing selection of featured products!</h3>
         {%else%}
@@ -7,7 +7,7 @@
 <div class="product-grid">
     
     {% for product in selected_collection.products %}
-      <div style="padding:10px;text-align:center;box-shadow:3px 3px 5px rgb(0,0,0,0.1); background:{% cycle 'lightblue', 'lightgrey' %}">
+      <div style="padding:10px;text-align:center;box-shadow:3px 3px 5px rgb(0,0,0,0.1);  %}">
         <a href="{{ product.url }}" style="text-decoration:none;">
           <img
             alt="{{ product.alt }}"

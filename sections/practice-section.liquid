@@ -1,8 +1,10 @@
 
 <section class="practice-section">
     {% assign msg="Welcome to the store" %}
-  
+    
     <h1 style="text-align:center">{{ msg }}</h1>
+    {%- assign description = section.settings.p_text -%}
+    <h3 style="text-align:center">{{description}}</h3>
 </section> 
   
   {% schema %}
