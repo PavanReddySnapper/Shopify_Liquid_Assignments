@@ -1,0 +1,68 @@
+
+{% if cart.empty? %}
+    <h3>cart is empty</h3>
+   {% else %}
+   <form action="{{ routes.cart_url }}" method="post">
+       <div class="cart-items">
+         {% for item in cart.items %}
+           <div class="line-item">
+             <div class="line-item-image"><a href="{{ item.url}}">{{ item.image | img_tag }}</a></div>
+             <div class="line-item-title">{{ item.title }}</div>
+             <div class="line-item-price">{{ item.price | money_with_currency }}</div>
+             <div class="line-item-remove"><a href="{{ item.url_to_remove }}">Remove</a></div>
+             <div class="line-item-quantity"><input type="text" name="updates[]" value="{{ item.quantity }}"></div>
+             <div class="line-item-update"><input type="submit" value="Update cart"></div>
+           </div>
+         {% endfor %}
+       </div>
+       <input type="submit" name="checkout" value="Checkout">
+       <h4>{{  cart.items_subtotal_price | money_with_currency }}</h4>
+   </form>
+   {% endif %}
+   {%  style %}
+     .cart-items{
+       display:flex;
+       flex-direction:column;
+       width:80%;
+       margin: 0 auto;
+     }
+     .line-item{
+       display:flex;
+       line-height:70px;
+       border:1px solid black;
+     }
+     .line-item-title{
+       width:30%;
+       border-right:1px solid black;
+       padding:0 10px;
+     }
+     .line-item-image{
+       border-right:1px solid black;
+       padding:0 10px;
+       width:150px;
+     }
+     .line-item-remove,.line-item-quantity,.line-item-update{
+       border-right:1px solid black;
+       padding:0 10px;
+     }
+     .line-item-price{
+       width:10%;
+       border-right:1px solid black;
+       padding:0 10px;
+     }
+   {% endstyle %}
+   
+   
+   {% schema %}
+     {
+       "name": "Section name",
+       "settings": [
+         {
+           "type": "text",
+           "id":"empty",
+           "label": "Empty Cart",
+           "default":"Cart is empty, Please somthing to cart to proceed!"
+         }
+       ]
+     }
+   {% endschema %}
