@@ -4,7 +4,11 @@ style="display:flex;flex-direction:column;align-items:center;">
 <img src="{{ product.featured_image | img_url:'300x300'}}" height="300" width="300" alt="{{ product.title }}">
 
   <h2>{{ product.title }}</h2>
-  
+  {% if product.description != blank %}
+    <h3>{{ product.description }}</h3>
+  {% else %}
+    <h3>Description coming soon</h3>
+  {% endif %}
   <h3>{{product.price | money}}</h3>
   {% if product.variants.first.inventory_quantity < 5 %}
     <h3 style="color: red;">Limited Stock Available!</h3>
