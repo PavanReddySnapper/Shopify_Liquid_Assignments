@@ -24,6 +24,8 @@ style="display:flex;flex-direction:column;align-items:center;">
   {% if product.variants.first.inventory_quantity < 5 %}
     <h3 style="color: red;">Limited Stock Available!</h3>
   {% endif %}
+  {%  assign tags = product.tags %}
+   <h3>Tags: {{ tags | join: ', ' }}</h3>
 </div>
 
 
