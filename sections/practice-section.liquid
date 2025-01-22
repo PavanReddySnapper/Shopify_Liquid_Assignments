@@ -8,6 +8,20 @@
         <p>{{ section.settings.message }}</p>
       {%- endif -%}
     </section>
+
+    {% assign numeric_time= 'now' | date: '%H' %} <!-- Time as a string -->
+    {% assign time = numeric_time | plus: 0 %} <!-- Convert to number -->
+    
+    {% comment %} <p>Time as a string: {{ time }}</p>
+    <p>Time as a number: {{ numeric_time }}</p> {% endcomment %}
+
+    {%  if time>6 and time<12 %}
+        <h3>Good morning! Start your day with great deals!</h3>
+      {% elsif time>12 and time<17%}
+        <h3>Good afternoon! Check out our latest arrivals!</h3>
+      {% else %}
+        <h3>Good evening! Unwind with our exclusive offers!</h3>
+    {% endif %}
 </section> 
   
   {% schema %}
