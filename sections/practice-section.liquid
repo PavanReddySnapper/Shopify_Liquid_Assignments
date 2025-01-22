@@ -1,0 +1,40 @@
+
+<section class="practice-section">
+    {% assign msg="Welcome to the store" %}
+    
+    <h1 style="text-align:center">{{ msg }}</h1>
+    {%- assign description = section.settings.p_text -%}
+    <h3 style="text-align:center">{{description}}</h3>
+</section> 
+  
+  {% schema %}
+  {
+    "name": "Practice Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Practice Section"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "This is a practice section where you can experiment with content and design."
+      },
+      {
+        "type": "text",
+        "id": "p_text",
+        "label": "Custom Text",
+        "default": "Welcome to my store! This is one of the best stores."
+      }
+    ]
+  }
+  {% endschema %}
+  
+  
+
+  
+     
+    
