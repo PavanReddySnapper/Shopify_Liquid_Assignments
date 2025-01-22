@@ -1,0 +1,60 @@
+
+<section class="practice-section" style="display:flex;flex-direction:column;align-items:center">
+    <h1>{{ section.settings.p_text }}</h1>
+    <section class="homepage-message">
+      {%- if customer  -%}
+        <h2>Hello, {{ customer.first_name }}!</h2>
+      {%- else -%}
+        <p>{{ section.settings.message }}</p>
+      {%- endif -%}
+    </section>
+
+    {% assign numeric_time= 'now' | date: '%H' %} <!-- Time as a string -->
+    {% assign time = numeric_time | plus: 0 %} <!-- Convert to number -->
+    
+    {% comment %} <p>Time as a string: {{ time }}</p>
+    <p>Time as a number: {{ numeric_time }}</p> {% endcomment %}
+
+    {%  if time>6 and time<12 %}
+        <h3>Good morning! Start your day with great deals!</h3>
+      {% elsif time>12 and time<17%}
+        <h3>Good afternoon! Check out our latest arrivals!</h3>
+      {% else %}
+        <h3>Good evening! Unwind with our exclusive offers!</h3>
+    {% endif %}
+</section> 
+  
+  {% schema %}
+  {
+    "name": "Practice Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Practice Section"
+      },
+      {
+        "type": "text",
+        "id": "message",
+        "label": "message",
+        "default": "Please Login"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "This is a practice section where you can experiment with content and design."
+      },
+      {
+        "type": "text",
+        "id": "p_text",
+        "label": "Custom Text",
+        "default": "Welcome to my store! This is one of the best stores."
+      }
+    ]
+  }
+  {% endschema %}
+  
+  
+   
