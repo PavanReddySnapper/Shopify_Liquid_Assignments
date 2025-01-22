@@ -12,6 +12,10 @@ style="display:flex;flex-direction:column;align-items:center;">
 
   {% if product.compare_at_price > product.price %}
     <span class="badge sale">On Sale</span>
+    {%  assign amount = product.compare_at_price | minus:product.price %}
+    {% assign amount = amount | times :100 %}
+    {% assign discount = amount | divided_by :product.compare_at_price %}
+    <h3>Save: {{ discount }}%</h3>
   {% else %}
     <span class="badge sale">Not on Sale</span>
   {% endif %}
