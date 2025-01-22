@@ -5,7 +5,7 @@
       {%- if customer  -%}
         <h2>Hello, {{ customer.first_name }}!</h2>
       {%- else -%}
-        <p>{{ section.settings.message }}</p>
+        <p>Welcome! Please log in to explore more.</p>
       {%- endif -%}
     </section>
 </section> 
@@ -19,12 +19,6 @@
         "id": "heading",
         "label": "Heading",
         "default": "Practice Section"
-      },
-      {
-        "type": "text",
-        "id": "message",
-        "label": "message",
-        "default": "Please Login"
       },
       {
         "type": "textarea",

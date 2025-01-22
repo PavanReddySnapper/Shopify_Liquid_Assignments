@@ -14,7 +14,8 @@
       "settings": {
         "heading": "Welcome to the Practice Section",
         "description": "Use this section to experiment with Shopify features.",
-        "p_text": "Welcome             to     my store!"
+        "p_text": "Welcome             to     my store!",
+        "message":"Welcome! Please log in to explore more."
       }
     },
     "featured_collection": {
