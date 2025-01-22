@@ -26,6 +26,8 @@ style="display:flex;flex-direction:column;align-items:center;">
   {% endif %}
   {%  assign tags = product.tags %}
    <h3>Tags: {{ tags | join: ', ' }}</h3>
+   {% assign added_date = product.created_at | date:'%B %d, %Y' %}
+   <h3>{{ added_date }}</h3>
 </div>
 
 
