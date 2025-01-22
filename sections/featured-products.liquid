@@ -1,13 +1,13 @@
 <div class="product-grid">
   {% assign selected_collection = collections[section.settings.collection] %}
-  {% for product in selected_collection.products limit: 3 %}
-    <div style="padding:10px;text-align:center;box-shadow:3px 3px 5px rgb(0,0,0,0.1), -3px -3px 5px rgb(0,0,0,0.1); %}">
+  {% for product in selected_collection.products %}
+    <div style="padding:10px;text-align:center;box-shadow:1px 1px 3px rgb(0,0,0,0.1), -1px -1px 3px rgb(0,0,0,0.1); %}">
       <a href="{{ product.url }}" style="text-decoration:none;">
         <img
           alt="{{ product.alt }}"
-          src="{{ product.featured_image | img_url:'small'}}"
-          width="200px"
-          height="200px"
+          src="{{ product.featured_image | img_url:'300x300'}}"
+          width="300px"
+          height="300px"
         >
         <h4>{{ product.title }}</h4>
 
